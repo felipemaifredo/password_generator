@@ -13,6 +13,8 @@ const lowerLetters = "abcdefghijklmnopqrstuvwxyz";
 const numbers = "0123456789";
 const symbols = "@#$%&-";
 
+const lengthResult = document.querySelector('span#lenght-result');
+
 function getLowerCase() {
     return lowerLetters[Math.floor(Math.random() * lowerLetters.length)];
 }
@@ -94,5 +96,19 @@ function copy() {
     textarea.select();
     document.execCommand("copy");
     textarea.remove();
-    alert("O texto foi copiado")
+    copytextSucess()
 }
+
+function  copytextSucess() {
+    document.body.classList.add("copy-text-sucess");
+    setTimeout( () => {
+        document.body.classList.remove("copy-text-sucess");
+    }, 3000);
+}
+
+/*-----*/
+lenEl.oninput = ( ()=>  {
+    let lenElV = lenEl.value;
+    lengthResult.innerText = lenElV;
+})
+/*----*/
